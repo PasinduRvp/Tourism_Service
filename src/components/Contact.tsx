@@ -202,7 +202,7 @@ Please respond promptly.`;
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className="rounded-lg placeholder:text-gray-400 bg-gray-50"
+                        className="rounded-lg placeholder:text-gray-700 bg-gray-50 text-gray-600"
                         placeholder="Your full name"
                       />
                     </div>
@@ -217,7 +217,7 @@ Please respond promptly.`;
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className="rounded-lg placeholder:text-gray-400 bg-gray-50"
+                        className="rounded-lg placeholder:text-gray-400 bg-gray-50 text-gray-600"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -255,7 +255,7 @@ Please respond promptly.`;
                       required
                       disabled={isSubmitting}
                       rows={5}
-                      className="rounded-lg placeholder:text-gray-700 bg-gray-50"
+                      className="rounded-lg placeholder:text-gray-400 bg-gray-50 text-gray-600"
                       placeholder="Tell us about your travel plans, dates, group size, and any special requirements..."
                     />
                   </div>
