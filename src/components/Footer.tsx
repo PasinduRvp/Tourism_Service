@@ -20,9 +20,10 @@ const Footer = () => {
 
   const destinations = [
     'Sigiriya Rock',
-    'Temple of the Tooth',
+    'Down South',
+    'Kandy',
     'Galle Fort',
-    'Ella Hills',
+    'Ella',
     'Yala Safari',
     'Nuwara Eliya',
   ];
