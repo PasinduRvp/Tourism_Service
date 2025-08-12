@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const galleryImages = [
+   const galleryImages = [
     {
       src: "/70.jpg",
       alt: "Temple of the Tooth",
@@ -319,14 +319,14 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-24 bg-muted/30">
+    <section id="gallery" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-gray-900 mb-6">
             Journey Through Sri Lanka
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover the breathtaking landscapes, rich culture, and unforgettable moments 
             that await you on your Sri Lankan adventure.
           </p>
@@ -341,8 +341,8 @@ const Gallery = () => {
               onClick={() => setActiveCategory(category)}
               className={`rounded-full px-6 py-2 transition-all duration-300 ${
                 activeCategory === category 
-                  ? 'bg-primary text-primary-foreground shadow-lg' 
-                  : 'hover:bg-primary/10'
+                  ? 'bg-primary text-white shadow-md hover:bg-primary/90' 
+                  : 'text-gray-100 hover:bg-gray-100 border-gray-300'
               }`}
             >
               {category}
@@ -440,11 +440,6 @@ const Gallery = () => {
                         <MapPin className="w-4 h-4 mr-2" />
                         <span>View on Map</span>
                       </a>
-                      {filteredImages[selectedImage].coordinates && (
-                        <p className="text-xs text-white/60 mt-1 text-right">
-                          {filteredImages[selectedImage].coordinates}
-                        </p>
-                      )}
                     </div>
                   )}
                 </div>
