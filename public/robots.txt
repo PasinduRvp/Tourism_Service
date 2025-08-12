@@ -1,14 +1,7 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
+Disallow: /search
+Disallow: /category/
+Disallow: /tag/
 Allow: /
+Sitemap: https://www.minicabstours.com/sitemap.xml
+Sitemap: https://www.minicabstours.com/sitemap-pages.xml
