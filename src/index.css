@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sri Lankan Tourism Transport Design System */
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 207 61% 26%; /* #184E6C */
+    --foreground: 204 42% 97%; /* #DDECF6 */
+
+    /* Card colors */
+    --card: 204 37% 43%; /* #387EA2 */
+    --card-foreground: 204 42% 97%;
+
+    /* Primary brand - Medium Fjord */
+    --primary: 204 37% 43%; /* #387EA2 */
+    --primary-foreground: 204 42% 97%;
+    --primary-glow: 204 52% 57%; /* #5BA3C6 */
+
+    /* Secondary - Light Fjord */
+    --secondary: 204 52% 57%; /* #5BA3C6 */
+    --secondary-foreground: 207 61% 26%;
+
+    /* Accent - Pale Fjord */
+    --accent: 204 60% 75%; /* #9BCBE5 */
+    --accent-foreground: 207 61% 26%;
+
+    /* Neutral tones */
+    --muted: 204 42% 92%; /* #DDECF6 */
+    --muted-foreground: 207 61% 26%;
+
+    --border: 204 37% 43%;
+    --input: 204 42% 92%;
+    --ring: 204 37% 43%;
+
+    /* Fjord-specific colors */
+    --deep: 207 61% 26%; /* #184E6C */
+    --medium: 204 37% 43%; /* #387EA2 */
+    --light: 204 52% 57%; /* #5BA3C6 */
+    --pale: 204 60% 75%; /* #9BCBE5 */
+    --ice: 204 42% 97%; /* #DDECF6 */
+
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(207 61% 26%), hsl(204 37% 43%));
+    --gradient-frost: linear-gradient(135deg, hsl(204 52% 57%), hsl(204 60% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(207 61% 26% / 0.9), hsl(204 37% 43% / 0.8));
+    --gradient-card: linear-gradient(145deg, hsl(204 37% 43%), hsl(204 60% 75% / 0.1));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(207 61% 26% / 0.2);
+    --shadow-strong: 0 10px 40px hsl(207 61% 26% / 0.3);
+    --shadow-glow: 0 0 30px hsl(204 52% 57% / 0.3);
+
+    /* Animation timing */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Hero Components */
+  .hero-title {
+    @apply text-5xl md:text-7xl font-playfair font-bold leading-tight;
+    color: hsl(var(--primary-foreground));
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-primary-foreground/90 font-light leading-relaxed;
+  }
+
+  .hero-background {
+    background: var(--gradient-hero);
+    position: relative;
+  }
+
+  /* Service Cards */
+  .service-card {
+    @apply bg-card rounded-2xl p-8 transition-all duration-500 hover:scale-105;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow-strong);
+    transform: translateY(-8px);
+  }
+
+  .service-icon {
+    @apply w-16 h-16 mb-6 mx-auto;
+    color: hsl(var(--primary));
+    filter: drop-shadow(var(--shadow-glow));
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply px-8 py-4 rounded-xl font-semibold transition-all duration-300;
+    background: var(--gradient-ocean);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-strong);
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300;
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-2px);
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply relative text-foreground/80 hover:text-primary transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--gradient-ocean);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
