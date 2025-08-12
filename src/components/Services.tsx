@@ -49,14 +49,14 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-sky">
+    <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-gray-900 mb-6">
             Our Premium Services
           </h2>
-          <p className="text-2xl text-gray-900 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             From airport transfers to island-wide tours, we provide comprehensive transport solutions 
             that showcase the best of Sri Lanka's beauty and culture.
           </p>
@@ -65,54 +65,50 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {services.map((service, index) => (
-            <div key={service.title} className={`bg-white rounded-3xl p-8 shadow-2xl hover:shadow-2xl transition-all duration-300 fade-in-up stagger-${index + 1}`}>
+            <div key={service.title} className={`bg-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 fade-in-up stagger-${index + 1}`}>
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <service.icon className="w-8 h-8 text-gray-900" />
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <service.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-gray-900 text-2xl font-playfair font-semibold text-foreground mb-3">
+                <h3 className="text-gray-900 text-2xl font-playfair font-semibold mb-3">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <div className="text-gray-900 text-2xl font-bold text-primary mb-4">
-                  {service.price}
-                </div>
               </div>
 
               <div className="space-y-3 mb-6">
                 {service.features.map((feature, i) => (
-                  <div key={i} className="flex items-center text-gray-600">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
+                  <div key={i} className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                     <span>{feature}</span>
                   </div>
                 ))}
               </div>
 
               <Link to="/contact">
-                <Button className="bg-blue-500 hover:bg-blue-900 text-white w-full rounded-full py-3 transition-all duration-300">
+                <Button className="bg-primary hover:bg-primary/90 text-white w-full rounded-full py-3 transition-all duration-300">
                   Contact Us
                 </Button>
               </Link>
-
             </div>
           ))}
         </div>
 
         {/* Why Choose Us */}
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
-          <h3 className="text-gray-900 text-3xl font-playfair font-bold text-center text-foreground mb-12">
+        <div className="bg-gray-50 rounded-3xl p-8 md:p-12 shadow-lg">
+          <h3 className="text-gray-900 text-3xl font-playfair font-bold text-center mb-12">
             Why Choose Sri Tours?
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyChooseUs.map((item, index) => (
               <div key={item.title} className={`text-center fade-in-up stagger-${index + 1}`}>
-                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-8 h-8 text-gray-600" />
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="text-gray-900 text-xl font-semibold text-foreground mb-3">
+                <h4 className="text-gray-900 text-xl font-semibold mb-3">
                   {item.title}
                 </h4>
                 <p className="text-gray-600 leading-relaxed">
