@@ -1,5 +1,7 @@
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { FaTiktok } from 'react-icons/fa';
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -141,6 +143,15 @@ const Footer = () => {
                 aria-label="Visit our Instagram page"
               >
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="'http://www.tiktok.com/@mini_cabs_tours"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300"
+                aria-label="Visit our Instagram page"
+              >
+                <FaTiktok className="w-5 h-5" />
               </a>
               <a
                 href="mailto:minicabs.tours@gmail.com"
