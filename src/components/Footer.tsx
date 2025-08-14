@@ -145,7 +145,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="'http://www.tiktok.com/@mini_cabs_tours"
+                href="http://www.tiktok.com/@mini_cabs_tours"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300"
