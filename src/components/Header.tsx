@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Menu, X, Phone, Mail, Facebook, Instagram } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X, Phone, Mail, Facebook, Instagram } from 'lucide-react';import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
+import { FaTiktok } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,6 +27,11 @@ const Header = () => {
       icon: Instagram, 
       href: 'https://www.instagram.com/mini_cabs_tours?igsh=bjhvaGFramswaWlz',
       label: 'Instagram'
+    },
+    { 
+      icon: FaTiktok, 
+      href: 'http://www.tiktok.com/@mini_cabs_tours',
+      label: 'Tiktok'
     },
     { 
       icon: Mail, 
