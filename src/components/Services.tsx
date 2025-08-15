@@ -87,7 +87,7 @@ const Services = () => {
                 ))}
               </div>
 
-              <Link to="/contact">
+              <Link to={`/contact?service=${encodeURIComponent(service.title)}`}>
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full rounded-full py-3 transition-all duration-300">
                   Contact Us
                 </Button>
