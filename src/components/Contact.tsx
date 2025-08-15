@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Phone, Mail, Clock, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
 const Contact = () => {
+  const location = useLocation();
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState({ 
     title: '', 
@@ -20,6 +22,19 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    // Parse the query parameters from the URL
+    const queryParams = new URLSearchParams(location.search);
+    const serviceParam = queryParams.get('service');
+    
+    if (serviceParam) {
+      setFormData(prev => ({
+        ...prev,
+        service: decodeURIComponent(serviceParam)
+      }));
+    }
+  }, [location.search]);
 
   const showToastMessage = (title, description, type = 'success') => {
     setToastMessage({ title, description, type });
@@ -43,10 +58,10 @@ const Contact = () => {
   ];
 
   const services = [
-    "Airport Transfer",
-    "Private Tour",
-    "Vehicle Rental", 
-    "Tour Guide Service",
+    "Airport Transfers",
+    "Private Tours",
+    "Certified Tour Guiding",
+    "Vehicle Rental",
     "Custom Package",
     "Other"
   ];
@@ -64,6 +79,7 @@ const Contact = () => {
     
 Name: ${formData.name}
 Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
 Service: ${formData.service || 'Not specified'}
 
 Message:
@@ -82,7 +98,7 @@ Please respond promptly.`;
 
     try {
       sendToWhatsApp();
-      setFormData({ name: '', email: '', service: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
 
       showToastMessage(
         "Message Sent to WhatsApp!",
@@ -224,6 +240,7 @@ Please respond promptly.`;
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    
                     
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-gray-700">Service Interested</Label>
