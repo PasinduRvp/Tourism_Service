@@ -83,7 +83,6 @@ I'm ${formData.name} and I'm interested in your ${formData.service || 'services'
 
 Here are my details:
 📧 Email: ${formData.email || 'Not provided'}
-📞 Phone: ${formData.phone || 'Not provided'}
 
 My message:
 ${formData.message}
