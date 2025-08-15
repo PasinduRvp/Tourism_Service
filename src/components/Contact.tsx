@@ -75,17 +75,22 @@ const Contact = () => {
 
   const sendToWhatsApp = () => {
     const whatsappNumber = '94763978918';
-    const message = `New Inquiry from Mini Cabs & Tours Website:
     
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || 'Not provided'}
-Service: ${formData.service || 'Not specified'}
+    // Friendly message template
+    const message = `Hi Mini Cabs & Tours team! 👋
 
-Message:
+I'm ${formData.name} and I'm interested in your ${formData.service || 'services'}.
+
+Here are my details:
+📧 Email: ${formData.email || 'Not provided'}
+📞 Phone: ${formData.phone || 'Not provided'}
+
+My message:
 ${formData.message}
 
-Please respond promptly.`;
+Looking forward to your response!
+Best regards,
+${formData.name}`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -101,14 +106,15 @@ Please respond promptly.`;
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
 
       showToastMessage(
-        "Message Sent to WhatsApp!",
-        "Thank you for your Request. We'll get back to you shortly."
+        "Message Sent!",
+        "We've opened WhatsApp for you. Please complete the message sending.",
+        "info"
       );
     } catch (error) {
       console.error('Failed to send message:', error);
       showToastMessage(
-        "Failed to Send Message",
-        "There was an error sending your message. Please try again or contact us directly.",
+        "Failed to Open WhatsApp",
+        "Please make sure you have WhatsApp installed or try again later.",
         "error"
       );
     } finally {
@@ -124,7 +130,9 @@ Please respond promptly.`;
           <div className={`rounded-lg p-4 shadow-lg border ${
             toastMessage.type === 'error' 
               ? 'bg-red-50 border-red-200 text-red-800' 
-              : 'bg-green-50 border-green-200 text-green-800'
+              : toastMessage.type === 'info'
+                ? 'bg-blue-50 border-blue-200 text-blue-800'
+                : 'bg-green-50 border-green-200 text-green-800'
           }`}>
             <h4 className="font-medium mb-1">{toastMessage.title}</h4>
             <p className="text-sm opacity-90">{toastMessage.description}</p>
@@ -240,7 +248,7 @@ Please respond promptly.`;
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    
+                   
                     
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-gray-700">Service Interested</Label>
@@ -297,7 +305,7 @@ Please respond promptly.`;
                 </form>
                 
                 <p className="text-gray-500 text-sm mt-3 text-center">
-                  We'll respond immediately. For urgent inquiries, please call or WhatsApp us.
+                  We'll open WhatsApp for you to complete sending your message.
                 </p>
               </div>
             </div>
